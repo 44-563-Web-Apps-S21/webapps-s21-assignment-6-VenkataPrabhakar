@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+ <title>JsPage</title>
+<body>
+
+<h2>Hidden things by VenkataPrabhakar</h2>
+
+<form>
+    <label for="form1_pswd">Enter the secret word</label>
+    <input type ="password" id="form1_pswd" name="form1_pswd" value="Secret"> <br>
+
+    <label for="form1_guess">Enter a guess </label>
+    <input type ="text" id="form1_guess" name="form1_nick" autofocus> <br>
+
+    <input type="button" onclick="processGuess()" value="Check the guess">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+ var correct=0;
+    var wrong=0;
+function processGuess(){
+   
+    console.log("Getting form values")
+    pswd=document.getElementById("form1_pswd").value
+    guess=document.getElementById("form1_guess").value
+
+    out = document.getElementById("result")
+    if(pswd == guess){
+        alert("Congratulations")
+        correct++
+        out.innerHTML="correct: "+correct+" wrong: "+wrong
+    }else{
+        alert("Sorry")
+        wrong++
+        out.innerHTML="correct: "+correct+" wrong: "+wrong
+    }
+
+    
+}
+function resolveForm (){
+    
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+</script>
+
+</body>
+</html> 
